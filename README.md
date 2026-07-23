@@ -155,13 +155,6 @@ GRAND TOTAL                         ₹346.50
 * Payment Gateway Integration
 * Multi-Language Support
 
----
-
-## 👨‍💻 Author
-
-**Vishal Vivek**
-
-GitHub: https://github.com/vishalvivek14332-source
 
 ---
 
