@@ -1,186 +1,74 @@
-<<<<<<< HEAD
-<div align="center">
-<img width="1200" height="475" alt="GHBanner" src="https://ai.google.dev/static/site-assets/images/share-ais-513315318.png" />
-</div>
+# Starbucks Concept Storefront ☕
 
-# Run and deploy your AI Studio app
+A concept/fan-made recreation of a Starbucks storefront experience — built with React, TypeScript, and Tailwind CSS. Features an interactive frame-by-frame product animation, a full drink customization flow, a shopping cart, and a store locator, all wrapped in Starbucks' signature deep-forest-green aesthetic.
 
-This contains everything you need to run your app locally.
+> **Disclaimer:** This is an unofficial, non-commercial concept project created for learning/portfolio purposes. It is not affiliated with, endorsed by, or connected to Starbucks Corporation. All Starbucks trademarks, logos, and product names belong to their respective owners.
 
-View your app in AI Studio: https://ai.studio/apps/94b0a269-9072-4b81-a68e-6d662ba074fa
+## ✨ Features
 
-## Run Locally
+- **Interactive product viewer** — a canvas-based, drag-to-scrub animation (260 frames) that lets you "rotate" a Frappuccino® in 3D, plus a matching animated Siren logo showcase
+- **Drink customization** — pick size, milk, toppings, and extra shots before adding to cart
+- **Shopping cart drawer** — live quantity updates, price recalculation, and cart badge
+- **Store locator** — browse nearby store info (hours, drive-thru, mobile order availability)
+- **Gift cards, About, and Contact** — modal-driven secondary pages
+- **Fully responsive**, mobile-first layout with smooth Framer Motion transitions
 
-**Prerequisites:**  Node.js
+## 🛠️ Tech Stack
 
+- [React 19](https://react.dev/) + [TypeScript](https://www.typescriptlang.org/)
+- [Vite 6](https://vitejs.dev/) — build tool & dev server
+- [Tailwind CSS 4](https://tailwindcss.com/) — styling
+- [Motion](https://motion.dev/) (Framer Motion) — animations
+- [Lucide React](https://lucide.dev/) — icons
 
-1. Install dependencies:
-   `npm install`
-2. Set the `GEMINI_API_KEY` in [.env.local](.env.local) to your Gemini API key
-3. Run the app:
-   `npm run dev`
-=======
-# ☕ Code & Coffee Digital Menu System
+## 📦 Getting Started
 
-A modern Digital Menu System for coffee shops built using **Python**, **Tkinter**, and **Pillow**. The application provides an attractive graphical interface for browsing menu items, managing customer orders, generating receipts, and maintaining order records.
-
----
-
-## 🚀 Features
-
-### Menu Management
-
-* Coffee Category
-* Tea Category
-* Cold Beverages Category
-* Snacks Category
-* Desserts Category
-
-### User Interface
-
-* Modern Tkinter GUI
-* Attractive Coffee-Themed Design
-* Search Bar for Menu Items
-* Placeholder Images for Products
-* Category-Based Navigation
-
-### Cart System
-
-* Add Items to Cart
-* Increase Quantity
-* Decrease Quantity
-* Remove Items
-* Clear Cart
-
-### Order Summary
-
-* Live Subtotal Calculation
-* Automatic Tax Calculation (5%)
-* Grand Total Calculation
-* Real-Time Updates
-
-### Order Processing
-
-* Generate Receipt (.txt)
-* Save Order History to CSV
-* Order Confirmation Dialog
-* Unique Order ID Generation
-
-### Programming Features
-
-* Object-Oriented Programming (OOP)
-* Beginner-Friendly Code Structure
-* Error Handling
-* Well-Documented Source Code
-
----
-
-## 🛠 Technologies Used
-
-* Python 3
-* Tkinter
-* ttk Widgets
-* Pillow (PIL)
-* CSV File Handling
-* Object-Oriented Programming
-
----
-
-## 📂 Project Structure
-
-```text
-coffee_menu_project/
-│
-├── coffee_menu.py
-├── README.md
-├── requirements.txt
-├── .gitignore
-│
-├── receipts/
-│   ├── CC20260121093045123.txt
-│   ├── CC20260121094512456.txt
-│   └── ...
-│
-├── screenshots/
-│   ├── home.png
-│   ├── cart.png
-│   └── receipt.png
-│
-└── orders.csv
-```
-
----
-
-## 📦 Installation
-
-### Clone Repository
+**Prerequisites:** Node.js 18+
 
 ```bash
-git clone https://github.com/vishalvivek14332-source/code-coffee-digital-menu-system.git
-cd code-coffee-digital-menu-system
+# Install dependencies
+npm install
+
+# Start the dev server
+npm run dev
+
+# Build for production
+npm run build
+
+# Preview the production build
+npm run preview
 ```
 
-### Install Dependencies
+The dev server runs at `http://localhost:3000` by default.
 
-```bash
-pip install -r requirements.txt
+## 📁 Project Structure
+
+```
+src/
+├── App.tsx                    # Root component & cart/tab state
+├── types.ts                   # Shared TypeScript types
+├── data/
+│   ├── drinks.ts               # Product catalog
+│   └── stores.ts               # Store locator data
+├── components/
+│   ├── Navbar.tsx
+│   ├── HeroSection.tsx
+│   ├── CoffeeFrameCanvas.tsx   # Frame-sequence product animation
+│   ├── LogoFrameCanvas.tsx     # Frame-sequence logo animation
+│   ├── LogoFrameSection.tsx
+│   ├── ShowcaseCardsSection.tsx
+│   ├── LovedByLocalsSection.tsx
+│   ├── DrinkCustomizerModal.tsx
+│   ├── CartDrawer.tsx
+│   ├── StoreLocatorModal.tsx
+│   ├── GiftCardsModal.tsx
+│   ├── AboutModal.tsx
+│   └── ContactModal.tsx
+└── assets/                    # Product imagery
 ```
 
-### Run Application
+Animation frame sequences live in `starbuck_coffeeframes/` and `starbucks_logoframes/` at the project root.
 
-```bash
-python coffee_menu.py
-```
+## 📝 License
 
----
-
-## 📋 Requirements
-
-```txt
-Pillow
-```
-
----
-
-## 🧾 Sample Receipt
-
-```text
-------------------------------------------------
-           CODE & COFFEE
-       The Developer's Cafe
-------------------------------------------------
-Order ID : CC20260121093045123
-Date     : 2026-01-21 09:30:45
-Customer : Guest
-------------------------------------------------
-Item                   Qty     Price     Total
-------------------------------------------------
-Espresso                 2   ₹120.00   ₹240.00
-Masala Chai              1    ₹90.00    ₹90.00
-------------------------------------------------
-Subtotal                            ₹330.00
-Tax (5%)                            ₹16.50
-GRAND TOTAL                         ₹346.50
-------------------------------------------------
-```
-
----
-
-## 🔮 Future Improvements
-
-* SQLite Database Integration
-* Admin Dashboard
-* Sales Analytics
-* Inventory Management
-* Customer Login System
-* PDF Receipt Generation
-* Payment Gateway Integration
-* Multi-Language Support
-
-
----
-
-## ⭐ Support
-
-If you found this project useful, consider giving it a star on GitHub.
->>>>>>> b023f1b68475cc8b0744d52d49e6dac71bca4286
+This project is intended for educational/portfolio purposes only. If you plan to publish it, consider adding an [MIT License](https://choosealicense.com/licenses/mit/) for your own code while keeping in mind that Starbucks branding/imagery is used non-commercially and should not be redistributed for commercial purposes.
