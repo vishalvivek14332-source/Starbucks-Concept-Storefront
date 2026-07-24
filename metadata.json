@@ -1,0 +1,6 @@
+{
+  "name": "Starbucks Coffee",
+  "description": "Minimalistic Starbucks Coffee landing page featuring deep forest green theme, interactive frappuccino showcase, order customization, store locator, and rewards.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
