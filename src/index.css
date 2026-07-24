@@ -1,0 +1,45 @@
+@import "tailwindcss";
+
+* {
+  transition: none !important;
+  animation: none !important;
+}
+
+@theme {
+  --font-sans: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+  --font-display: 'Syne', sans-serif;
+  --color-forest-dark: #0B4530;
+  --color-forest-medium: #006241;
+  --color-forest-light: #1E3932;
+  --color-starbucks-green: #00754A;
+  --color-starbucks-bright: #00A862;
+  --color-gold-accent: #D4E9E2;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #072e20;
+}
+::-webkit-scrollbar-thumb {
+  background: #006241;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #00A862;
+}
+
+/* Smooth glass effect */
+.glass-panel {
+  background: rgba(11, 69, 48, 0.6);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+.text-stroke {
+  -webkit-text-stroke: 1px rgba(255, 255, 255, 0.7);
+  color: transparent;
+}
+
