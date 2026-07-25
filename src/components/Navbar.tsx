@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { NavTab } from '../types';
 import { MapPin, ShoppingBag, Menu, X } from 'lucide-react';
+import { StarbucksLogo } from './StarbucksLogo';
 
 interface NavbarProps {
   activeTab: NavTab;
@@ -38,24 +39,7 @@ export const Navbar: React.FC<NavbarProps> = ({
           className="flex items-center gap-3 group focus:outline-none focus-visible:ring-2 focus-visible:ring-[#00A862] rounded-full p-1"
           aria-label="Starbucks Home"
         >
-          {/* Official styled Siren Logo badge */}
-          <div className="w-10 h-10 rounded-full bg-[#006241] flex items-center justify-center p-1.5 shadow-md border border-white/10 group-hover:scale-105 transition-transform duration-200">
-            <svg 
-              viewBox="0 0 100 100" 
-              className="w-full h-full text-white fill-current"
-            >
-              {/* Siren Circle & Star detail SVG */}
-              <circle cx="50" cy="50" r="48" fill="#006241" />
-              <circle cx="50" cy="50" r="42" fill="none" stroke="#FFFFFF" strokeWidth="2.5" />
-              {/* Siren crown star */}
-              <polygon points="50,15 53,24 62,24 55,30 57,39 50,33 43,39 45,30 38,24 47,24" fill="#FFFFFF" />
-              {/* Siren face silhouette */}
-              <path d="M50 35 C42 35 38 42 38 52 C38 64 45 74 50 78 C55 74 62 64 62 52 C62 42 58 35 50 35 Z M50 42 A 3 3 0 1 1 50 48 A 3 3 0 1 1 50 42 Z" fill="#FFFFFF" />
-              {/* Waves/tails */}
-              <path d="M22 55 Q 32 70 38 78 Q 28 72 18 60 Z" fill="#FFFFFF" />
-              <path d="M78 55 Q 68 70 62 78 Q 72 72 82 60 Z" fill="#FFFFFF" />
-            </svg>
-          </div>
+          <StarbucksLogo className="w-10 h-10 sm:w-11 sm:h-11" />
           <span className="font-display font-bold text-lg tracking-wider text-white hidden sm:block">
             STARBUCKS
           </span>

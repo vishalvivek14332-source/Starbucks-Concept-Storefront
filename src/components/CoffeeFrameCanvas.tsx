@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState, useCallback } from 'react';
-import { Play, Pause, RotateCcw, Sparkles, MoveHorizontal } from 'lucide-react';
+import { Sparkles, MoveHorizontal } from 'lucide-react';
 
 interface CoffeeFrameCanvasProps {
   onCustomize?: () => void;
@@ -18,8 +18,6 @@ export const CoffeeFrameCanvas: React.FC<CoffeeFrameCanvasProps> = ({
   
   const [loadedCount, setLoadedCount] = useState<number>(0);
   const [isFullyLoaded, setIsFullyLoaded] = useState<boolean>(false);
-  const [isPlaying, setIsPlaying] = useState<boolean>(true);
-  const [currentFrame, setCurrentFrame] = useState<number>(0);
   const [isDragging, setIsDragging] = useState<boolean>(false);
   const [dragStartX, setDragStartX] = useState<number>(0);
   const [dragStartFrame, setDragStartFrame] = useState<number>(0);
@@ -27,12 +25,7 @@ export const CoffeeFrameCanvas: React.FC<CoffeeFrameCanvasProps> = ({
   const requestRef = useRef<number | null>(null);
   const lastTimeRef = useRef<number>(0);
   const frameIndexRef = useRef<number>(0);
-  const isPlayingRef = useRef<boolean>(true);
   const isDraggingRef = useRef<boolean>(false);
-
-  useEffect(() => {
-    isPlayingRef.current = isPlaying;
-  }, [isPlaying]);
 
   useEffect(() => {
     isDraggingRef.current = isDragging;
@@ -130,7 +123,7 @@ export const CoffeeFrameCanvas: React.FC<CoffeeFrameCanvasProps> = ({
       if (delta >= interval) {
         lastTimeRef.current = time - (delta % interval);
 
-        if (isPlayingRef.current && !isDraggingRef.current) {
+        if (!isDraggingRef.current) {
           let nextFrame = frameIndexRef.current + 1;
 
           // If reached the end of full intro sequence, loop steam phase
@@ -139,7 +132,6 @@ export const CoffeeFrameCanvas: React.FC<CoffeeFrameCanvasProps> = ({
           }
 
           frameIndexRef.current = nextFrame;
-          setCurrentFrame(nextFrame);
           drawFrame(nextFrame);
         }
       }
@@ -184,19 +176,11 @@ export const CoffeeFrameCanvas: React.FC<CoffeeFrameCanvasProps> = ({
     if (newFrame < 0) newFrame += TOTAL_FRAMES;
 
     frameIndexRef.current = newFrame;
-    setCurrentFrame(newFrame);
     drawFrame(newFrame);
   };
 
   const handleMouseUp = () => {
     setIsDragging(false);
-  };
-
-  const handleRestart = () => {
-    frameIndexRef.current = 0;
-    setCurrentFrame(0);
-    drawFrame(0);
-    setIsPlaying(true);
   };
 
   const progressPercent = Math.min(
@@ -261,35 +245,6 @@ export const CoffeeFrameCanvas: React.FC<CoffeeFrameCanvasProps> = ({
             <MoveHorizontal className="w-3 h-3 text-[#00A862]" />
             <span>Drag to rotate 3D Cup</span>
           </div>
-        </div>
-      </div>
-
-      {/* Floating Control Toolbar */}
-      <div className="flex items-center gap-3 mt-3 z-30">
-        <button
-          onClick={() => setIsPlaying(!isPlaying)}
-          className="w-8 h-8 rounded-full bg-[#003824]/90 hover:bg-[#006241] border border-white/15 flex items-center justify-center text-white transition-all hover:scale-105 active:scale-95 shadow-md"
-          title={isPlaying ? 'Pause Animation' : 'Play Animation'}
-          aria-label={isPlaying ? 'Pause' : 'Play'}
-        >
-          {isPlaying ? (
-            <Pause className="w-3.5 h-3.5 text-[#00A862]" />
-          ) : (
-            <Play className="w-3.5 h-3.5 text-[#00A862] ml-0.5" />
-          )}
-        </button>
-
-        <button
-          onClick={handleRestart}
-          className="w-8 h-8 rounded-full bg-[#003824]/90 hover:bg-[#006241] border border-white/15 flex items-center justify-center text-white transition-all hover:scale-105 active:scale-95 shadow-md"
-          title="Replay Opening Sequence"
-          aria-label="Replay Opening Sequence"
-        >
-          <RotateCcw className="w-3.5 h-3.5 text-white/80" />
-        </button>
-
-        <div className="text-[11px] font-mono text-white/60 bg-black/20 px-2.5 py-1 rounded-full border border-white/10">
-          Frame {currentFrame + 1} / {TOTAL_FRAMES}
         </div>
       </div>
     </div>

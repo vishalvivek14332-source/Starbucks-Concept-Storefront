@@ -52,29 +52,24 @@ export const ShowcaseCardsSection: React.FC<ShowcaseCardsSectionProps> = ({
           <motion.div 
             whileHover={{ y: -6 }}
             transition={{ duration: 0.2 }}
-            className="bg-[#006241] rounded-[2rem] overflow-hidden shadow-2xl relative min-h-[440px] flex items-center justify-end p-6 border border-white/10 group cursor-pointer"
+            className="bg-[#006241] rounded-[2rem] overflow-hidden shadow-2xl relative min-h-[440px] flex flex-col justify-between p-6 border border-white/10 group cursor-pointer"
           >
             {/* Ambient inner glow */}
-            <div className="absolute inset-0 bg-gradient-to-tr from-[#0B4530] to-[#00A862] opacity-80" />
+            <div className="absolute inset-0 bg-gradient-to-tr from-[#0B4530] via-[#006241] to-[#00A862] opacity-90" />
+            <div className="absolute inset-0 bg-[#00A862]/20 blur-3xl pointer-events-none" />
 
-            {/* Oversized White Starbucks Siren Logo filling right side */}
-            <div className="absolute right-[-20%] top-1/2 -translate-y-1/2 w-[120%] h-[120%] opacity-90 transition-transform duration-500 group-hover:scale-105 pointer-events-none flex items-center justify-center">
-              <svg 
-                viewBox="0 0 100 100" 
-                className="w-full h-full text-white fill-current drop-shadow-2xl"
-              >
-                <circle cx="50" cy="50" r="48" fill="none" stroke="currentColor" strokeWidth="2" />
-                {/* Siren crown star */}
-                <polygon points="50,15 53,24 62,24 55,30 57,39 50,33 43,39 45,30 38,24 47,24" fill="currentColor" />
-                {/* Siren face silhouette */}
-                <path d="M50 35 C42 35 38 42 38 52 C38 64 45 74 50 78 C55 74 62 64 62 52 C62 42 58 35 50 35 Z M50 42 A 3 3 0 1 1 50 48 A 3 3 0 1 1 50 42 Z" fill="currentColor" />
-                {/* Waves/tails */}
-                <path d="M22 55 Q 32 70 38 78 Q 28 72 18 60 Z" fill="currentColor" />
-                <path d="M78 55 Q 68 70 62 78 Q 72 72 82 60 Z" fill="currentColor" />
-              </svg>
+            {/* Official Starbucks Logo Image in Card Center */}
+            <div className="relative z-10 flex-1 flex items-center justify-center p-4">
+              <div className="w-56 h-56 rounded-full overflow-hidden shadow-2xl border-4 border-white/20 transition-transform duration-500 group-hover:scale-105">
+                <img 
+                  src="/starbucklady.jpg" 
+                  alt="Starbucks Official Logo"
+                  className="w-full h-full object-cover rounded-full select-none"
+                />
+              </div>
             </div>
 
-            <div className="relative z-10 space-y-2 text-left self-end max-w-[180px]">
+            <div className="relative z-10 space-y-1 text-left">
               <span className="text-[10px] uppercase font-bold tracking-widest text-emerald-200 block">
                 EST. 1971
               </span>
@@ -93,9 +88,12 @@ export const ShowcaseCardsSection: React.FC<ShowcaseCardsSectionProps> = ({
             {/* Top White Area: Header + Cup */}
             <div className="p-5 pb-0 bg-white relative">
               <div className="flex items-center justify-between">
-                <span className="font-display font-black text-sm tracking-widest text-black">
-                  STARBUCKS
-                </span>
+                <div className="flex items-center gap-2">
+                  <img src="/starbucklady.jpg" alt="Starbucks Logo" className="w-5 h-5 rounded-full object-cover select-none" />
+                  <span className="font-display font-black text-sm tracking-widest text-black">
+                    STARBUCKS
+                  </span>
+                </div>
                 <Menu className="w-5 h-5 text-black cursor-pointer hover:opacity-70" />
               </div>
 
