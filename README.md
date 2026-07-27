@@ -40,6 +40,13 @@ The application demonstrates component-based architecture, responsive layouts, a
 
 ---
 
+## 📸 Screenshot
+
+<p align="center">
+  <img src="screenshots/hero.png" alt="Starbucks Concept Storefront - Hero Section" width="800">
+</p>
+
+---
 ## ✨ Key Features
 
 - Modern Starbucks-inspired landing page
